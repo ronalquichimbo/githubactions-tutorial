@@ -1,0 +1,11 @@
+name: Mi primer workflow
+on: push
+
+jobs:
+  build:
+      run-ons: ubuntu-latest
+    
+      steps: 
+        - uses: actions/checkout@v3 
+        - name: Run a Sample Github action
+          run: echo "Hola ronal"
