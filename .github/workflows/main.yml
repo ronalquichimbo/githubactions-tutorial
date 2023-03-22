@@ -10,5 +10,3 @@ jobs:
        - name: Run a Sample Github action
          run: echo "Hola ronal"
          
-       - name: Probar error
-         run: echo "Simular que hay un error"; exit 1
