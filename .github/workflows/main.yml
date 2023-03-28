@@ -1,15 +1,21 @@
-name: Modelado de amenazas
+name: IriusRisk
+
 on:
   push:
-    branches: [ main ]
+  pull_request:
+
 jobs:
-  threatspec:
+  iriusrisk:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: threatspec/threatspec-action@v2
-      with:
-        entrypoint: threatmodel
-        cmdargs: generate --format=md --outpath=threatmodel.md
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install IriusRisk CLI
+        run: |
+          curl https://getiriusrisk.io | bash
+          sudo iriusrisk install-cli
+      - name: Generate IriusRisk model
+        run: iriusrisk gen-model
+
 
          
