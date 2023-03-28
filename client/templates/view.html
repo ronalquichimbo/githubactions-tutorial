@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <h3>Calculadora</h3>
+<form action="{{ url_for('send') }}" method="POST">
+    Num1<br><input type="text" name="num1" id="num2"><br><br>
+    Num2<br><input type="text" name="num2" id="num2">
+    <br><br><input type="submit" name="action" value="+">
+    <br><br><input type="submit" name="action" value="-">
+    <br><br><input type="submit" name="action" value="*">
+    <br><br><input type="submit" name="action" value="÷">
+</form>
+<p>Result: {{ resultado_op }}</p>
+</body>
+</html>

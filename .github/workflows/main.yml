@@ -1,12 +1,15 @@
-name: Mi primer workflow
-on: push
-
+name: Modelado de amenazas
+on:
+  push:
+    branches: [ main ]
 jobs:
-  build:
-      runs-on: ubuntu-latest
-      steps: 
-       - uses: actions/checkout@v3 
-        
-       - name: Run a Sample Github action
-         run: echo "Hola ronal"
+  threatspec:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: threatspec/threatspec-action@v2
+      with:
+        entrypoint: threatmodel
+        cmdargs: generate --format=md --outpath=threatmodel.md
+
          

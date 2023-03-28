@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+
+  sum:
+    build: ./sum
+    ports: ["3001:5000"]
+  res:
+    build: ./res
+    ports: ["3002:5000"]
+  mul:
+    build: ./mul
+    ports: ["3003:5000"]
+  div:
+    build: ./div
+    ports: ["3004:5000"]
+  
+  app:
+    build: ./app
+    ports: ["5005:5000"]
+    depends_on:
+      - sum
+      - res
+      - mul
+      - div
+  client:
+    build: ./client
+    ports: ["5006:5000"]
+    depends_on:
+      - app
